@@ -19,7 +19,7 @@ public class StockController {
 	private StockService ns;
 	
 	@PostMapping("/api/addStock")
-	public ResponseBean<Stock> addNews(String gname,String category,int ammount,int batch){
+	public ResponseBean<Stock> addStock(String gname,String category,int ammount,int batch){
 		ResponseBean<Stock> addRB = new ResponseBean<Stock>();
 		List<Stock> list = new ArrayList<Stock>();
 		
@@ -28,7 +28,6 @@ public class StockController {
 		addRB.setCode("2");
 			addRB.setCode("null");
 		}else {
-			//准备被添加的新闻对象
 			int num = ns.insertStock(new Stock(gname,category,ammount,batch));
 			if(num == 1) {
 				addRB.setCode("1");
@@ -48,8 +47,8 @@ public class StockController {
 	}
 
 	@PostMapping("api/getStockById")
-	public Stock queryNewsById(String id) {
-		return ns.selectStockById(Integer.parseInt(id));
+	public Stock queryStockById(String stockno) {
+		return ns.selectStockById(Integer.parseInt(stockno));
 	}
 	
 	@PostMapping("api/updateStock")

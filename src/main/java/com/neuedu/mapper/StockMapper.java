@@ -38,9 +38,9 @@ public interface StockMapper {
 );
 	
 	@Select("SELECT * FROM stock WHERE stockno = #{stockno}")
-	public Stock selectStockById(@Param("id")int id);
+	public Stock selectStockById(@Param("stockno")int stockno);
 
-	@Update("UPDATE stock SET GNAME = #{gname},CATEGORY= #{category},AMMOUNT= #{ammount} WHERE id = #{id}")
+	@Update("UPDATE stock SET CATEGORY= #{category},AMMOUNT= #{ammount} WHERE stockno = #{stockno}")
 	public int doUpdateStockById(Stock stock);
 	
 	@Delete("DELETE FROM stock WHERE stockno = #{stockno}")
