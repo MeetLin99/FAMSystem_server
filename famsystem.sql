@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 04/07/2022 12:53:03
+ Date: 04/07/2022 15:02:02
 */
 
 SET NAMES utf8mb4;
@@ -25,14 +25,43 @@ CREATE TABLE `admin`  (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ADMINNAME` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `ADMINPASSWORD` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `ADMINSTATUS` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ADMINSTATUS` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0',
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES (1, 'admin', '123456', '1');
+INSERT INTO `admin` VALUES (1, 'admin', '111111', '1');
+INSERT INTO `admin` VALUES (5, '123123', '111111', '0');
+
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
+DROP TABLE IF EXISTS `goods`;
+CREATE TABLE `goods`  (
+  `gno` int(11) NOT NULL AUTO_INCREMENT,
+  `gname` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `gprice` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `gdate` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `releasdate` date NULL DEFAULT NULL,
+  PRIMARY KEY (`gno`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+INSERT INTO `goods` VALUES (1, 'Dio牌小面包', '40', '15', '2022-07-01');
+INSERT INTO `goods` VALUES (2, '西撒牌泡泡水', '6', '1年', '2020-02-18');
+INSERT INTO `goods` VALUES (4, '可口可乐（大）', '8', '6个月', '2020-02-18');
+INSERT INTO `goods` VALUES (5, '芬达 ', '3', '7个月', '2020-02-18');
+INSERT INTO `goods` VALUES (7, '泡面牌泡面（袋）', '1.5', '2年', '2020-02-18');
+INSERT INTO `goods` VALUES (8, '奔驰小模型', '100', '/', '2020-02-18');
+INSERT INTO `goods` VALUES (9, '遥控小飞机', '69', '/', '2022-06-09');
+INSERT INTO `goods` VALUES (10, '老八牌小汉堡', '5', '1天', '2022-06-28');
+INSERT INTO `goods` VALUES (11, '不到牌鸡肉卷', '7', '1天', '2022-06-29');
+INSERT INTO `goods` VALUES (12, '雀氏牌咖啡', '39', '3个月', '2022-06-29');
+INSERT INTO `goods` VALUES (13, '五五牌玩具宝箱', '6', '/', '2022-06-29');
 
 -- ----------------------------
 -- Table structure for news
