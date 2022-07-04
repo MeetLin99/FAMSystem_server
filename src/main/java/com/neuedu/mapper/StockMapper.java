@@ -45,5 +45,9 @@ public interface StockMapper {
 	
 	@Delete("DELETE FROM stock WHERE stockno = #{stockno}")
 	public int doDeleteStockById(@Param("stockno")int stockno);
+	
+	@Select("SELECT * FROM stock")
+	public List<Stock> selectAllStock();
+	//@Param("gname")String gname,@Param("ammount")int ammount
 
 }

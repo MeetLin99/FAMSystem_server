@@ -1,6 +1,9 @@
 package com.neuedu.service;
 
 import com.neuedu.beans.Stock;
+
+import java.util.List;
+
 import com.neuedu.beans.PageBean;
 
 public interface StockService {
@@ -14,5 +17,7 @@ public interface StockService {
 	public int updateStockById(Stock stock);
 	
 	public int deleteStockById(int stockno);
+	
+	public List<Stock> findAll();
 
 }

@@ -1,9 +1,12 @@
 package com.neuedu.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -71,5 +74,12 @@ public class StockController {
 		System.out.println(stockno);
 		return ns.deleteStockById(Integer.parseInt(stockno));
 	}
+	
+	@GetMapping(value = "api/stockchart")
+    public Map<String, List<Stock>> findAll() {
+        Map<String, List<Stock>> map = new HashMap<>();
+        map.put("stockchart", ns.findAll());
+        return map;
+    }
 
 }

@@ -61,4 +61,15 @@ public class StockServiceImpl implements StockService{
 		// TODO Auto-generated method stub
 		return nm.doDeleteStockById(stockno);
 	}
+
+	@Override
+	public List<Stock> findAll() {
+		// TODO Auto-generated method stub
+		return nm.selectAllStock();
+	}
+
+
+
+
+	
 }
