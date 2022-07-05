@@ -39,7 +39,7 @@ public interface AdminMapper {
 	 * @param admin；封装被增加的用户信息
 	 * @return
 	 */
-	@Insert("INSERT INTO admin (ADMINNAME,ADMINPASSWORD) VALUES (#{adminName},#{adminPassword})")
+	@Insert("INSERT INTO admin (ADMINNAME,ADMINPASSWORD,ADMINSEX) VALUES (#{adminName},#{adminPassword},#{adminSex})")
 	public int doInsertAdmin(Admin admin);
 	
 
@@ -49,14 +49,13 @@ public interface AdminMapper {
 			+ "<if test = 'ADMINNAME != null' >"
 			+ "AND ADMINNAME like CONCAT('%',#{ADMINNAME},'%')"
 			+ "</if>"
-			+ "and ADMINNAME NOT LIKE 'admin'"
 			+ " LIMIT #{start},#{pageSize}"
 			+ "</script>")
 	public List<Admin> selectAdminByNameLikeLimit(@Param("ADMINNAME")String ADMINNAME,@Param("start")int start,@Param("pageSize")int pageSize);
 	
 	
 	/**
-	 * 查询学生信息总数
+	 * 查询用户信息总数
 	 * @param stuname
 	 * @return
 	 */
@@ -78,11 +77,11 @@ public interface AdminMapper {
 	@Select("SELECT * FROM admin WHERE ID = #{id}")
 	public Admin selectAdminById(@Param("id")int id);
 	
-	@Update("UPDATE admin SET ADMINPASSWORD = #{adminPassword} WHERE ID = #{id}")
+	@Update("UPDATE admin SET ADMINPASSWORD = #{adminPassword} , ADMINSEX = #{adminSex} WHERE ID = #{id}")
 	public int doUpdateAdminById(Admin admin);
 	
 	@Delete("DELETE FROM admin WHERE ID =#{id} ")
 	public int doDeleteAdminById(@Param("id")int id);
-	
+
 }
 

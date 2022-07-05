@@ -1,6 +1,7 @@
 package com.neuedu.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,10 +112,11 @@ public class AdminController {
 	
 	//添加用户信息
 	@PostMapping("api/addAdmin")
-	public ResponseBean<Admin> insertAdmin(String adminname,String adminpassword) {
+	public ResponseBean<Admin> insertAdmin(String adminname,String adminpassword ,String adminsex) {
 		Admin admin = new Admin();
 		admin.setAdminName(adminname);
 		admin.setAdminPassword(adminpassword);
+		admin.setAdminSex(adminsex);
 		System.out.println(admin);
 		ResponseBean<Admin> addRB = new ResponseBean<Admin>();
 		List<Admin> list = new ArrayList<Admin>();
@@ -135,7 +137,6 @@ public class AdminController {
 	//显示用户信息
 	@PostMapping("api/admin")
 	public PageBean<Admin> queryAdminByTitleLikeLimit(String query,String pageSize,String pageNum){
-		System.out.println("as.selectAdminPageBean((Integer.parseInt(pageNum)-1)*Integer.parseInt(pageSize), Integer.parseInt(pageSize), Integer.parseInt(pageNum), query)");
 		return as.selectAdminPageBean((Integer.parseInt(pageNum)-1)*Integer.parseInt(pageSize), Integer.parseInt(pageSize), Integer.parseInt(pageNum), query);
 	};
 	
@@ -147,11 +148,12 @@ public class AdminController {
 	
 	//id修改信息
 	@PostMapping("api/updateaAdmin")
-	public ResponseBean<Admin> updateAdminById(String id,String adminpassword)
+	public ResponseBean<Admin> updateAdminById(String id,String adminpassword,String adminsex)
 	{
 		Admin admin = new Admin();
 		admin.setId(Integer.parseInt(id));
 		admin.setAdminPassword(adminpassword);
+		admin.setAdminSex(adminsex);
 		ResponseBean<Admin> updateAdminRB =new ResponseBean<Admin>();
 		int num =as.updateAdminById(admin);
 		if(num == 1)

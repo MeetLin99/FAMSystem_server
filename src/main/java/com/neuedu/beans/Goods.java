@@ -13,13 +13,13 @@ public class Goods {
 	private String  gname;	// 学生姓名
 	private String gprice;		// 学生年龄
 	private String gdate;	// 学生性别
-	private Date releasDate;
+	private Date releasdate;
 
-	public Date getReleasDate() {
-		return releasDate;
+	public Date getReleasdate() {
+		return releasdate;
 	}
-	public void setReleasDate(Date releasDate) {
-		this.releasDate = releasDate;
+	public void setReleasdate(Date releasdate) {
+		this.releasdate = releasdate;
 	}
 	// 访问器
 	
@@ -55,13 +55,13 @@ public class Goods {
 		this.gdate = gdate;
 	}
 	
-	public Goods(Integer gno, String gname, String gprice, String gdate, Date releasDate) {
+	public Goods(Integer gno, String gname, String gprice, String gdate, Date releasdate) {
 		super();
 		this.gno = gno;
 		this.gname = gname;
 		this.gprice = gprice;
 		this.gdate = gdate;
-		this.releasDate = releasDate;
+		this.releasdate = releasdate;
 	}
 	
 	public Goods(String gname, String gprice, String gdate) {
@@ -73,7 +73,7 @@ public class Goods {
 	@Override
 	public String toString() {
 		return "Goods [gno=" + gno + ", gname=" + gname + ", gprice=" + gprice + ", gdate=" + gdate + ", releasDate="
-				+ releasDate + "]";
+				+ releasdate + "]";
 	}
 	
 }
